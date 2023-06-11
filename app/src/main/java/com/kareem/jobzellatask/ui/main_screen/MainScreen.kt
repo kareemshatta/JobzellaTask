@@ -20,6 +20,7 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.kareem.jobzellatask.R
 import com.kareem.jobzellatask.ui.main_screen.components.SearchTextField
+import com.kareem.jobzellatask.ui.search_screen.SearchViewModel
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_search_logo_side
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_text_field_radius
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_xlarge
@@ -56,7 +57,10 @@ fun MainScreen(navigationActions: AppNavigationActions) {
         Spacer(modifier = Modifier.height(dim_xxxlarge.dp))
         SearchTextField(
             modifier = Modifier,
-            viewModel = viewModel
+            viewModel = viewModel,
+            onSearchClicked = {
+                navigationActions.navigateToSearchScreen()
+            }
         )
         Spacer(modifier = Modifier.height(dim_xlarge.dp))
         TextButton(
@@ -72,7 +76,7 @@ fun MainScreen(navigationActions: AppNavigationActions) {
             enabled = viewModel.searchFieldState.value.isNotEmpty(),
             interactionSource = MutableInteractionSource(),
             onClick = {
-                viewModel.onSearchClicked()
+                navigationActions.navigateToSearchScreen()
             }) {
             Text(text = LocalContext.current.getString(R.string.search_txt), color = White)
         }

@@ -18,7 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.kareem.jobzellatask.R
-import com.kareem.jobzellatask.ui.main_screen.SearchViewModel
+import com.kareem.jobzellatask.ui.search_screen.SearchViewModel
 import com.kareem.jobzellatask.ui.theme.Black
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_text_field_height
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_text_field_radius
@@ -31,7 +31,8 @@ import com.kareem.jobzellatask.ui.theme.Gray500
 @Composable
 fun SearchTextField(
     modifier: Modifier,
-    viewModel: SearchViewModel
+    viewModel: SearchViewModel,
+    onSearchClicked: () -> Unit
 ) {
     val trailingIconView = @Composable {
         Icon(
@@ -93,7 +94,7 @@ fun SearchTextField(
         keyboardActions = KeyboardActions(
             onSearch = {
                 keyboardController?.hide()
-                viewModel.onSearchClicked()
+                onSearchClicked()
             }
         ),
     )

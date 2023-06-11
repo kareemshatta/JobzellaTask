@@ -1,4 +1,4 @@
-package com.kareem.jobzellatask.ui.main_screen
+package com.kareem.jobzellatask.ui.search_screen
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -11,7 +11,7 @@ class SearchViewModel : ViewModel() {
         searchFieldState.value = ""
     }
 
-    fun onSearchClicked() {
+    fun onSearch() {
         TODO("Not yet implemented")
     }
 }

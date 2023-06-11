@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.kareem.jobzellatask.ui.main_screen.MainScreen
+import com.kareem.jobzellatask.ui.search_screen.SearchScreen
 
 @Composable
 fun SetupNavGraph(
@@ -23,6 +24,10 @@ fun SetupNavGraph(
         composable(AppDestinations.MAIN_SCREEN_ROUTE) {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
             MainScreen(navigationActions)
+        }
+        composable(AppDestinations.SEARCH_SCREEN_ROUTE) {
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING)
+            SearchScreen(navigationActions)
         }
     }
 }
