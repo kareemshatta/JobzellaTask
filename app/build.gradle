@@ -86,4 +86,8 @@ dependencies {
     //image_loading_library_dependency
     implementation("io.coil-kt:coil:2.0.0")
 
+    //image_loading_library_dependency
+    def lottieVersion = "5.0.3"
+    implementation("com.airbnb.android:lottie-compose:$lottieVersion")
+
 }

@@ -3,6 +3,7 @@ package com.kareem.jobzellatask.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -21,6 +22,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             JobzellaTaskTheme {
                 this.window.statusBarColor = ContextCompat.getColor(this, R.color.status_bar_color)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
                 val navController = rememberNavController()
                 val navigationActions = remember(navController) {
                     AppNavigationActions(navController)
@@ -31,6 +34,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     SetupNavGraph(
                         navController = navController,
+                        window = window,
                         navigationActions = navigationActions
                     )
                 }
