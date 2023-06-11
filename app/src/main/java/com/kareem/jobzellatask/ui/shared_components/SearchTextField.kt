@@ -1,4 +1,4 @@
-package com.kareem.jobzellatask.ui.main_screen.components
+package com.kareem.jobzellatask.ui.shared_components
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -18,7 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.kareem.jobzellatask.R
-import com.kareem.jobzellatask.ui.search_screen.SearchViewModel
+import com.kareem.jobzellatask.ui.main_screen.MainScreenViewModel
 import com.kareem.jobzellatask.ui.theme.Black
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_text_field_height
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_text_field_radius
@@ -31,7 +31,7 @@ import com.kareem.jobzellatask.ui.theme.Gray500
 @Composable
 fun SearchTextField(
     modifier: Modifier,
-    viewModel: SearchViewModel,
+    viewModel: MainScreenViewModel,
     onSearchClicked: () -> Unit
 ) {
     val trailingIconView = @Composable {

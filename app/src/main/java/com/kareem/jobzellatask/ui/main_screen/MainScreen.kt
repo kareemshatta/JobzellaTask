@@ -19,8 +19,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.kareem.jobzellatask.R
-import com.kareem.jobzellatask.ui.main_screen.components.SearchTextField
-import com.kareem.jobzellatask.ui.search_screen.SearchViewModel
+import com.kareem.jobzellatask.ui.shared_components.SearchTextField
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_search_logo_side
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_text_field_radius
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_xlarge
@@ -36,7 +35,7 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun MainScreen(navigationActions: AppNavigationActions) {
 
-    val viewModel = getViewModel<SearchViewModel>()
+    val viewModel = getViewModel<MainScreenViewModel>()
 
     Column(
         modifier = Modifier
@@ -59,7 +58,7 @@ fun MainScreen(navigationActions: AppNavigationActions) {
             modifier = Modifier,
             viewModel = viewModel,
             onSearchClicked = {
-                navigationActions.navigateToSearchScreen()
+                navigationActions.navigateToSearchScreen(viewModel.searchFieldState.value)
             }
         )
         Spacer(modifier = Modifier.height(dim_xlarge.dp))
@@ -76,7 +75,7 @@ fun MainScreen(navigationActions: AppNavigationActions) {
             enabled = viewModel.searchFieldState.value.isNotEmpty(),
             interactionSource = MutableInteractionSource(),
             onClick = {
-                navigationActions.navigateToSearchScreen()
+                navigationActions.navigateToSearchScreen(viewModel.searchFieldState.value)
             }) {
             Text(text = LocalContext.current.getString(R.string.search_txt), color = White)
         }

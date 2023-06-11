@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 val Primary = Color(0xFF3490dc)
 val Black = Color(0xFF000000)
 val White = Color(0xFFFFFFFF)
+val ShimmerBg = Color(0xFFeaeaec)
 val Gray1000 = Color(0xFFfafafd)
 val Gray900 = Color(0xFF263446)
 val Gray800 = Color(0xFF414D5E)

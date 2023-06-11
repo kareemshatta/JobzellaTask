@@ -7,6 +7,10 @@ object AppDestinations {
     const val SEARCH_SCREEN_ROUTE = "search_screen"
 }
 
+object AppArguments {
+    const val SEARCH_KEYWORD = "search_keyword"
+}
+
 
 /**
  * Models the navigation actions in the app.
@@ -16,8 +20,12 @@ class AppNavigationActions(private val navController: NavHostController) {
         navController.popBackStack()
     }
 
-    val navigateToSearchScreen: () -> Unit = {
-        navController.navigate(AppDestinations.SEARCH_SCREEN_ROUTE)
+    val navigateToSearchScreen: (keyword: String) -> Unit = { keyword ->
+        navController.navigate(
+            "${AppDestinations.SEARCH_SCREEN_ROUTE}/" +
+                    "${AppArguments.SEARCH_KEYWORD}=${keyword}"
+        )
     }
 
 }
+

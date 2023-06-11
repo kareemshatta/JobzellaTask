@@ -1,17 +1,17 @@
 package com.kareem.jobzellatask.ui.search_screen
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 
 class SearchViewModel : ViewModel() {
-    val searchFieldState = mutableStateOf("")
 
+    private val _images = MutableStateFlow<List<String>>(emptyList())
+    val images: MutableStateFlow<List<String>> = _images
 
-    fun clearSearchField() {
-        searchFieldState.value = ""
-    }
+    private val _imagesLoading = MutableStateFlow(true)
+    val imagesLoading: MutableStateFlow<Boolean> = _imagesLoading
 
-    fun onSearch() {
-        TODO("Not yet implemented")
+    fun onSearch(keyword: String) {
+//        TODO("Not yet implemented")
     }
 }

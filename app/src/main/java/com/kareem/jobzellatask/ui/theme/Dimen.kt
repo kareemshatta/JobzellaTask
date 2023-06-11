@@ -12,5 +12,7 @@ class Dimen{
         const val dim_search_logo_side = 200
         const val dim_text_field_height = 57
         const val dim_text_field_radius = 10
+        const val dim_top_bar_height = 74
+        const val home_slider_content_padding = 24
     }
 }
