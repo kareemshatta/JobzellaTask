@@ -1,7 +1,9 @@
 package com.kareem.data.di
 
 import com.kareem.data.remote.ApiInterface
+import com.kareem.data.repositories_imp.SearchRepositoryImp
 import com.kareem.data.utils.Constants.Companion.BASE_URL
+import com.kareem.domain.repositories.SearchRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -15,6 +17,9 @@ val dataModule = module {
 
     single {
         getApiInterface(get())
+    }
+    single<SearchRepository> {
+        SearchRepositoryImp(get())
     }
 
 }
