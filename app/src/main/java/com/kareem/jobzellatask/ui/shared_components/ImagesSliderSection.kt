@@ -19,6 +19,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.kareem.domain.models.PhotoVM
 import com.kareem.jobzellatask.R
 import com.kareem.jobzellatask.ui.search_screen.SearchViewModel
 import com.kareem.jobzellatask.ui.theme.Dimen.Companion.dim_large
@@ -42,7 +43,7 @@ fun ImagesSliderSection(
 
 @Composable
 fun ImagesSlider(
-    images: MutableStateFlow<List<String>>,
+    images: MutableStateFlow<List<PhotoVM>>,
 ) {
     val imageList = images.collectAsState().value
     val pagerState = rememberPagerState(initialPage = 1)
@@ -62,12 +63,12 @@ fun ImagesSlider(
     ) { page ->
         Card {
             AsyncImage(
-                model = imageList[page],
+                model = imageList[page].url,
                 placeholder = painterResource(id = R.drawable.ic_image_placholder),
                 error = painterResource(R.drawable.ic_image_placholder),
                 modifier = Modifier
-                    .fillMaxSize()
-                    .aspectRatio(2.5f)
+                    .fillMaxWidth()
+                    .aspectRatio(2.5f, true)
                     .clip(RoundedCornerShape(6.dp)),
                 contentDescription = "images slider",
                 filterQuality = FilterQuality.High,
